@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 from hst_tests import HST_test_cases
+from payroll_tests import Payroll_test_cases
 project_root = Path(__file__).resolve().parents[1]  # Adjust according to your structure
 sys.path.append(str(project_root))
 from utils.logger import setup_logging
@@ -44,6 +45,7 @@ def main():
         login(page)
         client_name = create_client(page)
         HST_test_cases(page, client_name, hst_method="Monthly")
+        Payroll_test_cases(page, client_name, payroll_method="Bimonthly")
     except Exception as main_e:
         error_logger.error(f"Error in main function: {str(main_e)}", exc_info=True)
     finally:

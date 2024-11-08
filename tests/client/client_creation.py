@@ -16,7 +16,7 @@ def create_client(page):
         sleep(5)
         page.click('text="New Client"')
         page.click('button:text("Next")')
-        time.sleep(5)
+        time.sleep(2)
 
         # Generate client personal information
         company_name, share_holder, email, secondary_email, business_number, phone_number = client_personal_info()
@@ -29,7 +29,6 @@ def create_client(page):
         page.fill('input[id="secondary_email"]', secondary_email)
         page.fill('input[id="phone_number"]', phone_number)
         page.click('button:text("Next")')
-        time.sleep(1)
 
         # Generate and fill client address information
         street_address, city, state, zip_code = client_address_info()
