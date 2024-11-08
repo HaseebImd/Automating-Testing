@@ -109,7 +109,6 @@ def main():
     try:
         # Perform login
         login(page)
-        print("login done")
 
         # Add HST entry for a specific client
         client_name = "[Testing]-130838-20241107-U5CKI"  # Replace with actual client name

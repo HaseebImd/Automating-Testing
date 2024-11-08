@@ -49,7 +49,6 @@ def login(page):
 
 def add_hst_for_client(page, client_name, ct_method="Monthly"):
     try:
-        print("inside add_hst_for_client")
         # Ensure we are on the HST page
         page.goto(f"{base_url}/apps/corporateTax/")
         logger.info("Navigated to Corporate Tax page")
@@ -62,7 +61,7 @@ def add_hst_for_client(page, client_name, ct_method="Monthly"):
         page.click('input[id="id_client"]')
 
         # Wait for the dropdown list to load and become visible
-        page.wait_for_selector('ul[role="listbox"]', timeout=10000)  # Adjust selector as needed
+        page.wait_for_selector('ul[role="listbox"]', timeout=20000)  # Adjust selector as needed
 
         # Now that the list is loaded, type the client name
         page.fill('input[id="id_client"]', client_name)
@@ -106,10 +105,9 @@ def main():
     try:
         # Perform login
         login(page)
-        print("login done")
 
         # Add HST entry for a specific client
-        client_name = "[Testing]-130838-20241107-U5CKI"  # Replace with actual client name
+        client_name = "[Testing]-114845-20241108-OQ354"  # Replace with actual client name
         add_hst_for_client(page, client_name, "Calander")
 
         logger.info("CT addition completed successfully")
