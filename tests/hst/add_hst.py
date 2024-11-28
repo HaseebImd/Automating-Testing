@@ -5,7 +5,7 @@ project_root = Path(__file__).resolve().parents[2]  # Adjust according to your s
 sys.path.append(str(project_root))
 import time
 from utils.logger import setup_logging
-from tests.local import *
+from local import *
 base_url = BASE_URL
 
 # Set up logging
